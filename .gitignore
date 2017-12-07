@@ -41,3 +41,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+.vs/slnx.sqlite
+.vs/ProjectSettings.json
+.vs/config/applicationhost.config
