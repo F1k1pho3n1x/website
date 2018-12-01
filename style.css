@@ -3,11 +3,63 @@ font-family: "newFont";
 src: url("MetroRetroNF.otf") format("opentype");
 }
 
-body{
+html{
 	background-image: url("background_1.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+body{
 	width: 1000px;
 	margin: auto;
 	padding-top: 100px;
+	
+}
+
+p{
+	font-weight: 700;
+}
+
+.file_name{
+	padding-top: 10px;
+	color: purple;
+	text-align: center;
+}
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.paket{
+	text-align: center;
+	width: 20%;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.empty{
+	text-align: center;
+	width: 20%;
+	float: left;
+	margin-bottom: 20px;
+}
+
+span{
+	font-size: 22px;
+	font-style: italic;
+}
+
+.empty .btn{
+	background-color: green;;
+}
+
+
+.main{
 	
 }
 
@@ -19,13 +71,15 @@ header{
 	margin: 0px 200px 100px 200px;
 }
 
-.btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 12px 15px;
-  cursor: pointer;
-  font-size: 15px;
+.empty .btn:hover{
+	background-color: red;;
+}
+
+.empty:hover{
+	background-color: hsla(0, 100%, 90%, 0.4);
+}
+.paket:hover{
+	background-color: hsla(0, 100%, 90%, 0.4);
 }
 
 .btn:hover {
