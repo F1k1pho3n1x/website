@@ -1,0 +1,33 @@
+@font-face {
+font-family: "newFont";
+src: url("MetroRetroNF.otf") format("opentype");
+}
+
+body{
+	background-image: url("background_1.png");
+	width: 1000px;
+	margin: auto;
+	padding-top: 100px;
+	
+}
+
+header{
+	font-family: newFont;
+	font-size: 40px;
+	text-align: center;
+	background-color: green;
+	margin: 0px 200px 100px 200px;
+}
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 15px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn:hover {
+  background-color: RoyalBlue;
+}
