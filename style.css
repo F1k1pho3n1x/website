@@ -3,6 +3,10 @@ font-family: "newFont";
 src: url("MetroRetroNF.otf") format("opentype");
 }
 
+.main{
+	margin-bottom: 200px;
+}
+
 html{
 	background-image: url("background_1.png");
 	background-size: cover;
@@ -13,7 +17,6 @@ body{
 	width: 1000px;
 	margin: auto;
 	padding-top: 100px;
-	margin-bottom: 200px;
 	
 }
 
