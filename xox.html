@@ -118,16 +118,16 @@
 			dugme.style.pointerEvents = "none"
 			rez = Number(checkWinner())
 			if(rez == 1){
-				ispis.innerHTML = "X je pobednik."
+				ispis.innerHTML = "X is the winner."
 				endGame()
 			}
 			else if(rez == -1){
-				ispis.innerHTML = "O je pobednik."
+				ispis.innerHTML = "O is the winner."
 				endGame()
 			}
 			else if(rez == 2){
 				ispis.style.color = "black"
-				ispis.innerHTML = "Nereseno."
+				ispis.innerHTML = "Tied."
 				endGame()
 			}
 			else{
@@ -143,7 +143,7 @@
 	<body onload="initialize()">
 	
 	<h1>FI<span class="x">X</span><span id="o">O</span><span class="x">X</span><span id="tm">&trade; </span>Game</h1>
-	<h3 id="poruka">Na potezu je <span id="igrac">X</span>.</h3>
+	<h3 id="poruka">Current turn: <span id="igrac">X</span>.</h3>
 	<table>
 		<tr>
 			<td id="0" onclick="odigraj(this.id)">&#x1F533;</td>
@@ -162,6 +162,6 @@
 		</tr>
 		
 	</table>
-	<div id="new" onclick="window.location.reload()">Nova igra</div>
+	<div id="new" onclick="window.location.reload()">New game</div>
 	</body>
 </html>
