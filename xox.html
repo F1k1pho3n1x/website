@@ -3,40 +3,164 @@
 <html>
 
 	<head>
-	<meta charset="UTF-8"/>
-	
+		<meta charset="UTF-8"/>
+		<title>FIXOX&trade;</title>
 		<style>
 		body{
+			font-family: "Tahoma";
 			width: 500px;
-			font-size: 60px;
+			font-size: 80px;
 			text-align: center;
 			display: block;
 			margin: auto;
 		}
+		h3{
+			font-size: 50px;
+			margin-left: 50px;
+		}
+		table{
+			margin-left: 100px;
+		}
+		#new{
+			margin-top: 50px;
+			font-size: 50px;
+			margin-left: 50px;
+		}
+		#tm{
+			color: #f03a17;
+		}
+		.x{
+			color: #383838;
+		}
+		#o{
+			color: #f03a17;
+		}
+		#poruka{
+			color: #383838;
+		}
 		</style>
+		
+		<script>
+		var naPotezu = "X"
+		function initialize(){
+			clickCount = 0;
+			matrica = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+		}
+		
+		function endGame(){
+			for(i = 1; i <= 9; i++){
+				document.getElementById(i).style.pointerEvents = "none"
+			}
+		}
+		
+		function checkWinner(){
+		
+			var nereseno = true
+			var sg = 0
+			var ss = 0
+			for(i = 0; i < 3; i++){
+				sg += Number(matrica[i][i])
+				ss += Number(matrica[i][2 - i])
+				var sk = 0
+				var sv =0
+				for(j = 0; j < 3; j++){
+					sk += Number(matrica[j][i])
+					sv += Number(matrica[i][j])
+					if(matrica[i][j] == 0){
+						nereseno = false
+					}
+				}	
+				
+				if((sk == 3) || (sv == 3))
+					return 1 					// X POBEDA
+				if((sk == -3) || (sv == -3))
+					return -1 					// O POBEDA	
+			}
+			//alert("GLAVNA: " + sg)
+			if((sg == 3) || (ss == 3)) 
+				return 1 					// X POBEDA
+			if((sg == -3) || (ss == -3))
+				return -1 					// O POBEDA
+			
+			if(!nereseno)
+				return 0 					// IGRA TECE
+			else
+				return 2
+		}
+		
+		function odigraj(kliknut){
+			clickCount += 1
+			
+			ispis = document.getElementById("poruka")
+			dugme = document.getElementById(kliknut)
+			
+			if(naPotezu == "X"){
+				dugme.innerHTML = "&#x274C;"				
+				naPotezu = "O"
+				poen = "1"
+				ispis.style.color = "#f03a17"
+			}
+			else{
+				naPotezu = "X"
+				dugme.innerHTML = "&#x2B55;"
+				poen = "-1"
+				ispis.style.color = "#383838"
+			}
+			
+			kolona = Number(kliknut) % 3
+			vrsta = Number(kliknut) / 3
+			vrsta = Math.floor(vrsta)
+			//alert("Kolona " + kolona + "\nVrsta " + vrsta)
+			
+			matrica[vrsta][kolona] = poen
+			
+			dugme.style.pointerEvents = "none"
+			rez = Number(checkWinner())
+			if(rez == 1){
+				ispis.innerHTML = "X je pobednik."
+				endGame()
+			}
+			else if(rez == -1){
+				ispis.innerHTML = "O je pobednik."
+				endGame()
+			}
+			else if(rez == 2){
+				ispis.style.color = "black"
+				ispis.innerHTML = "Nereseno."
+				endGame()
+			}
+			else{
+				document.getElementById("igrac").innerHTML = naPotezu
+			}
+			
+		}
+		
+		</script>
 	</head>
 
 	
-	<body>
+	<body onload="initialize()">
 	
-	<h1>XOX Game</h1>
+	<h1>FI<span class="x">X</span><span id="o">O</span><span class="x">X</span><span id="tm">&trade; </span>Game</h1>
+	<h3 id="poruka">Na potezu je <span id="igrac">X</span>.</h3>
 	<table>
 		<tr>
-			<td>&#x1F533;</td>
-			<td>&#x1F533;</td>
-			<td>&#x1F533;</td>
+			<td id="0" onclick="odigraj(this.id)">&#x1F533;</td>
+			<td id="1" onclick="odigraj(this.id)">&#x1F533;</td>
+			<td id="2" onclick="odigraj(this.id)">&#x1F533;</td>
 		</tr>
 		<tr>
-			<td>&#x1F533;</td>
-			<td>&#x1F533;</td>
-			<td>&#x1F533;</td>
+			<td id="3" onclick="odigraj(this.id)">&#x1F533;</td>
+			<td id="4" onclick="odigraj(this.id)">&#x1F533;</td>
+			<td id="5" onclick="odigraj(this.id)">&#x1F533;</td>
 		</tr>
 		<tr>
-			<td>&#x1F533;</td>
-			<td>&#x1F533;</td>
-			<td>&#x1F533;</td>
+			<td id="6" onclick="odigraj(this.id)">&#x1F533;</td>
+			<td id="7" onclick="odigraj(this.id)">&#x1F533;</td>
+			<td id="8"onclick="odigraj(this.id)">&#x1F533;</td>
 		</tr>
+		
 	</table>
-	
+	<div id="new" onclick="window.location.reload()">Nova igra</div>
 	</body>
 </html>
