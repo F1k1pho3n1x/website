@@ -945,7 +945,7 @@ database = [
                 "Odgovor1": "ro = V / m",
                 "Odgovor2": "ro = m * V"
               },
-              "IndeksTacnogOdgovora": "1"
+              "IndeksTacnogOdgovora": "0"
             },
             {
               "IndeksPitanja": "5",
@@ -955,7 +955,7 @@ database = [
                 "Odgovor1": "98.1 [m / s^2]",
                 "Odgovor2": "10.81 [m / s^2]"
               },
-              "IndeksTacnogOdgovora": "1"
+              "IndeksTacnogOdgovora": "0"
             },
             {
               "IndeksPitanja": "6",
