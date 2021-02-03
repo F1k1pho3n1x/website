@@ -1,179 +1,99 @@
-<!DOCTYPE html>
 <html>
+    <head>
+        <title>Школарац</title>
+        <script type="text/javascript" src="script.js"></script>
+	    <link rel="stylesheet" href="style.css">
+		<link rel="icon" href="images/favicon.png">
+    </head>
+    
+    <div id="stick">Верзија 1.0</div>
+    
+    <body onload="init()">
+        <!--
+        <div id="animate">
+            <svg id="angles" width="200" height="200">
+                <polygon id="triangle" points = "50,50 150,50 100,150" fill="none" stroke-width="3" stroke = "#a474d7"  />
+            </svg>
+            
+            <svg id="angles" width="200" height="200">
+                <polygon id="triangle" points = "50,50 150,50 100,150" fill="none" stroke-width="3" stroke = "#a474d7"  />
+            </svg>
+        </div>
+        -->
+        
+        <img id="pmf" src="images/PMF.png"/>
+        <div id="main">
+            <div id="quiz_title">Школарац</div>
+            
+            <hr>
+            
+            <div id="main_menu">
+                <div onclick="start_game()" id="mainy1">Играј</div>
+                <br/>
+                <div id="mainy2" onclick="ontoPomoc()">Помоћ</div>
+                <br/>
+                <img onclick="toggle_sound(this)" id="sound" src="images/sound.png"/>
+            </div>
+            
+            <div id="pomoc">
+                <h2>Помоћ</h2>
+                <p>Драги школарци, <br/> <br/>
+                добро нам дошли у мини школску авантуру! Надамо се да ћете се забавити. Игра има 4 нивоа, при чему у сваком нивоу се налази по 5 питања из одговарајућих области. Ваш задатак је да пробате да одговорите на што више питања тачно. Потрудите се да имате 80% и више како бисте добили награду.<br> <br> Можете ли све награде да откријете?
+                <br><br></p>
+                <h3 id="vazno">*За коришћење награде, неопходна вам је Instagram апликација, као и било која апликација за скенирање QR кодова.</h3>
+                
+                <p>Филтери: </p> <a href="http://www.instagram.com/marija_slovic/" target="_blank">Марија Словић 97/2016</a>
+                    <br>
+                    <p>Игрица: </p> <a href="http://www.instagram.com/f1k1sk0"target="_blank">Филип Поповић 89/2016</a>
+                </p>
+                
+                <div onclick="backToMain()"><img class="back" src="images/back.png"/></div>
+                
+            </div>
+            
+            <div id="level_choices">
+                <div id="odabir">Изаберите жељени ниво:</div>
+                <div id="nivo1" class="nivo_selector" onclick='izaberiNivo(this)'>Ниво 1: Српски језик, Енглески језик и Опште образовање</div>
+                <div id="nivo2" class="nivo_selector" onclick='izaberiNivo(this)'>Ниво 2: Математика, Физика и Информатика</div>
+                <div id="nivo3" class="nivo_selector" onclick='izaberiNivo(this)'>Ниво 3: Биологија, Хемија и Географија</div>
+                <div id="nivo4" class="nivo_selector" onclick='izaberiNivo(this)'>Ниво 4: Историја, Музичка култура и Ликовна култура</div>
+                <div onclick="backToMain()"><img class="back" src="images/back.png"/></div>
+            </div>
+            
+            <div id="question">
+                <div id="q_od">Питање 1 од 15:</div>
+                <div id="question_text">Темплејт текст.</div>
+                
+                <div id="pitanje">
+                    <div id="odgovor1" onclick="izaberiOdgovor(this)" class="nivo_selector">Одговор 1</div>
+                    <div id="odgovor2" onclick="izaberiOdgovor(this)" class="nivo_selector">Одговор 2</div>
+                    <div id="odgovor3" onclick="izaberiOdgovor(this)" class="nivo_selector">Одговор 3</div>
+                </div>
+                
+                <div id="tacan"><span id="naslov_tac">Тачан одговор: </span><span id="odg_sadrzaj"></span></div>
+                
+                <div class="nivo_selector" id="confirm_button" onclick="potvrdiOdgovor()">
+                    Потврди одговор
+                </div>
+            </div>
+            
+            <div id="rezultat">
+                
+                <div id="procenti"></div>
+                <img id="ocena" src="" />
+                <img id="bonus" src="images/no_bonus.png"/>
+                <div id="comment">Освежи страницу ако желиш други ниво или да пробаш исти ниво опет!</div>
+            </div>
+        </div>
 
-<head>
-
-	<title>$1000e]</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-</head>
-
-<body>
-
-	<header>Python Advent Calendar 2018</header>
-	
-	<!-- Shhh... $1010i] -->
-
-	<div class=main>	
-	
-		<div class=paket>
-		<p><span>1</span>st December</p>
-		<a href="code/rock_paper_scissors.rar" download="rock_paper_scissors.rar"><button class="btn" type="submit"><i class="fa fa-download"></i> Download</button></a>
-		<div class=file_name>[rock_paper_scissors.py]</div>
-		</div>
-		
-		<div class=paket>
-		<p><span>2</span>st December</p>
-		<a href="code/guess_the_number.rar" download="guess_the_number.rar"><button class="btn" type="submit"><i class="fa fa-download"></i> Download</button></a>
-		<div class=file_name>[guess_the_number.py]</div>
-		</div>
-		
-		<div class=paket>
-		<p><span>3</span>rd December</p>
-		<a href="code/puzzlify.rar" download="puzzlify.rar"><button class="btn" type="submit"><i class="fa fa-download"></i> Download</button></a>
-		<div class=file_name>[puzzlify.py]</div>
-		</div>
-		
-		<div class=paket>
-		<p><span>4</span>th December</p>
-		<a href="code/math_quiz.rar" download="math_quiz.rar"><button class="btn" type="submit"><i class="fa fa-download"></i> Download</button></a>
-		<div class=file_name>[math_quiz.py]</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>5</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>6</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>7</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>8</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>9</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>10</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>11</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>12</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>13</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>14</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>15</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>16</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>17</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>18</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>19</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>20</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>21</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>22</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>23</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>24</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-		
-		<div class=empty>
-		<p><span>25</span>th December</p>
-		<a><button class="btn" type="submit"><i class="fa fa-download"></i> N/A </button></a>
-		<div class=file_name>N/A</div>
-		</div>
-	</div>	
-	
-	<div>
-		<h2> This is an update! OMG! lmao </h2>
-		<a href="http://youtube.com/user/Fikisko">Check out my YouTube channel!</a>
-		
-		<h2> Click </h2><a href="xox.html">here</a> <h2> for the XOX game </h2>
-	</div>
-</body>
-
+    <!--
+        <div id="animate">
+            <svg id="angles" width="200" height="200">
+                <polygon id="triangle" points = "50,50 150,50 100,150" fill="none" stroke-width="3" stroke = "#a474d7"  />
+            </svg>
+            
+            <svg id="angles" width="200" height="200">
+                <polygon id="triangle" points = "50,50 150,50 100,150" fill="none" stroke-width="3" stroke = "#a474d7"  />
+            </svg>
+        </div>-->
 </html>
